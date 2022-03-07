@@ -1,0 +1,9 @@
+spring:
+  config:
+    import: oprional:configserver:http://localhost:8012
+
+
+
+
+server:
+  port: 8082
