@@ -1,4 +1,4 @@
-package com.example.secondService.command.dto;
+package com.example.secondService.commandPattern.dto;
 
 import lombok.Data;
 

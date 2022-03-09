@@ -1,22 +1,25 @@
 package com.example.secondService.controller;
 
 
-import com.example.secondService.command.CommandInput;
-import com.example.secondService.command.CommandOutput;
-import com.example.secondService.command.command;
+import com.example.secondService.commandPattern.CommandInput;
+import com.example.secondService.commandPattern.CommandOutput;
+import com.example.secondService.commandPattern.Numbercommand;
 import com.example.secondService.factory.GeneralDTOfactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "consumer")
+@RefreshScope
 public class secondController {
     private static final Logger logger = LoggerFactory.getLogger(secondController.class);
     @Autowired
@@ -24,8 +27,11 @@ public class secondController {
     @Autowired
     private GeneralDTOfactory generalDTOfactory;
 
-    @Value("${token:irurorroir}")
+    @Value("${token}")
     private String token;
+
+    @Value("${my.app}")
+    private String appName;
 
     static List<String> city = new ArrayList<>();
 
@@ -36,15 +42,19 @@ public class secondController {
     }
 
 
-    @GetMapping(value = "/message/{num}", produces = "application/xml")
-    public @ResponseBody
-    int showMessage(@PathVariable int num) throws Exception {
+    @GetMapping(value = "/message/{num}")
+    public @ResponseBody String showMessage(@PathVariable int num) throws Exception {
 
+          String localAddress = null;
+
+        localAddress = InetAddress.getLocalHost().getHostAddress();
         logger.info("----TOKEN ---- {}", token);
+        logger.info("----APP NAME ---- {}",appName );
+        logger.info("----LOCAL ADDRESS ---- {}", localAddress);
         CommandInput input = generalDTOfactory.createIntegerNumber(num);
-        command commandExecute = beanFactory.getBean(command.class, input);
+        Numbercommand commandExecute = beanFactory.getBean(Numbercommand.class, input);
         CommandOutput Output = commandExecute.execute();
         logger.info("CommandOutput--------->{}", Output);
-        return Output.getRandomNumber();
+        return "token:: ".concat(token)+" "+Output.getRandomNumber();
     }
 }

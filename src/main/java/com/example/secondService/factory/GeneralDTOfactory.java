@@ -1,16 +1,11 @@
 package com.example.secondService.factory;
 
-import com.example.secondService.command.CommandInput;
+import com.example.secondService.commandPattern.CommandInput;
 import com.example.secondService.model.customer;
-import com.example.secondService.command.dto.customerDTO;
+import com.example.secondService.commandPattern.dto.customerDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class GeneralDTOfactory {

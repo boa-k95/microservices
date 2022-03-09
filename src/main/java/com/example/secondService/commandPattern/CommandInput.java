@@ -1,9 +1,7 @@
-package com.example.secondService.command;
+package com.example.secondService.commandPattern;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 @Data
