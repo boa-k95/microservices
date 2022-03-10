@@ -5,20 +5,25 @@ import com.example.secondService.commandPattern.CommandInput;
 import com.example.secondService.commandPattern.CommandOutput;
 import com.example.secondService.commandPattern.Numbercommand;
 import com.example.secondService.factory.GeneralDTOfactory;
+import com.example.secondService.model.customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
+import javax.validation.Valid;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "consumer")
+@RequestMapping(value = "getId")
 @RefreshScope
 public class secondController {
     private static final Logger logger = LoggerFactory.getLogger(secondController.class);
@@ -26,6 +31,9 @@ public class secondController {
     private BeanFactory beanFactory;
     @Autowired
     private GeneralDTOfactory generalDTOfactory;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Value("${token}")
     private String token;
@@ -56,5 +64,12 @@ public class secondController {
         CommandOutput Output = commandExecute.execute();
         logger.info("CommandOutput--------->{}", Output);
         return "token:: ".concat(token)+" "+Output.getRandomNumber();
+    }
+
+
+    @PostMapping()
+    public ResponseEntity<String> getInformattion(@RequestBody @Valid customer cus){
+
+
     }
 }
