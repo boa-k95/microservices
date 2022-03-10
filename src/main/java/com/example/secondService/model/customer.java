@@ -3,6 +3,7 @@ package com.example.secondService.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -16,4 +17,5 @@ public class customer {
        @NotBlank private String name;
      @NotBlank private String surname;
 
+     @Autowired private request request;
 }
