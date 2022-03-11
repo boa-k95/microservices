@@ -18,10 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import javax.validation.Valid;
 import java.net.InetAddress;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "getId")
@@ -61,15 +58,17 @@ public class secondController {
         return "token:: ".concat(token)+" "+Output.getRandomNumber();
     }
     @GetMapping("/getConfigurations")
-    public void getAllConfig(){
+    public @ResponseBody Map<String,String> getAllConfig(){
         Properties systemProperties = System.getProperties();
         Enumeration enuProp = systemProperties.propertyNames();
 
+         Map<String,String> getAllConfig = new HashMap<>();
         while (enuProp.hasMoreElements()) {
             String propertyName = (String) enuProp.nextElement();
             String propertyValue = systemProperties.getProperty(propertyName);
-            System.out.println(propertyName + ": " + propertyValue);
+            getAllConfig.put(propertyName,propertyValue);
         }
+        return getAllConfig;
     }
 
     @PostMapping(value = "/check")
