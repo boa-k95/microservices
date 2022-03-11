@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @Configuration
 @ContextConfiguration(classes = {ConfigClass.class})
-@ActiveProfiles("app-test")
+@ActiveProfiles("app-svil")
 @RunWith(SpringRunner.class)
 public abstract class BaseTestClass {
 

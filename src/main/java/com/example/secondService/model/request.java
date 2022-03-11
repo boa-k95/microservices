@@ -5,14 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 public class request {
 
-    @Nullable
+    @NotNull @NotBlank @NotEmpty
     private String number;
-    @Autowired
-    @NotBlank
     private customer customer;
     private accType type;
 }
