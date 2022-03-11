@@ -10,7 +10,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: *
 
 server:
   port: 8082
