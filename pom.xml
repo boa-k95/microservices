@@ -72,6 +72,14 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>2.6.4</version>
+            <scope>runtime</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>org.apache.maven.wagon</groupId>
@@ -98,8 +106,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+           <configuration>
+              <systemPropertyVariables>
+                  <property>C:\Program Files\apache-maven-3.5.4\bin</property>
+              </systemPropertyVariables>
+           </configuration>
             </plugin>
-
         </plugins>
     </build>
 

@@ -55,7 +55,7 @@ public class secondController {
         Numbercommand commandExecute = beanFactory.getBean(Numbercommand.class, input);
         CommandOutput Output = commandExecute.execute();
         logger.info("CommandOutput--------->{}", Output);
-        return "token:: ".concat(token)+" "+Output.getRandomNumber();
+        return "---------".concat(token)+"----"+Output.getRandomNumber();
     }
     @GetMapping("/getConfigurations")
     public @ResponseBody Map<String,String> getAllConfig(){
