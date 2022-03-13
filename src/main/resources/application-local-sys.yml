@@ -15,4 +15,4 @@ management:
 server:
   port: 8088
 
-my: 989898
+my: 20000
