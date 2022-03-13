@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    compatibility-verifier:
+      enabled: false
+  config:
+    import: optional:configserver:http://localhost:8012
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  port: 8088
