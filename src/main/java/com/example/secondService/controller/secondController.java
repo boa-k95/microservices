@@ -61,7 +61,7 @@ public class secondController {
     public @ResponseBody Map<String,String> getAllConfig(){
         Properties systemProperties = System.getProperties();
         Enumeration enuProp = systemProperties.propertyNames();
-
+     logger.info("GETTING ALL CONFIGURATIONS-----");
          Map<String,String> getAllConfig = new HashMap<>();
         while (enuProp.hasMoreElements()) {
             String propertyName = (String) enuProp.nextElement();
@@ -71,7 +71,7 @@ public class secondController {
         return getAllConfig;
     }
 
-    @PostMapping(value = "/check")
+git    @PostMapping(value = "/check")
     public ResponseEntity<checkcommandOutput> getInformattion(@RequestBody @Valid request req) throws Exception {
 
     checkcommandInput input = reqFactory.createcheckcommandInput(req);
