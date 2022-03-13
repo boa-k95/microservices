@@ -71,7 +71,7 @@ public class secondController {
         return getAllConfig;
     }
 
-git    @PostMapping(value = "/check")
+   @PostMapping(value = "/check")
     public ResponseEntity<checkcommandOutput> getInformattion(@RequestBody @Valid request req) throws Exception {
 
     checkcommandInput input = reqFactory.createcheckcommandInput(req);
