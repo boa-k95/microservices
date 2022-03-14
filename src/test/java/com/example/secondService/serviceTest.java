@@ -7,11 +7,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import org.mockito.Mockito;
-import org.mockito.internal.stubbing.answers.Returns;
+
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,7 +41,7 @@ public class serviceTest extends BaseTestClass {
 
         Mockito.when(service.checkSize(anyInt())).thenReturn(18);
         int expected = service.checkSize(number);
-        Assert.assertEquals("same number",expected, mockedResponse);
+        Assert.assertEquals("same number", expected, mockedResponse);
 
     }
 }
