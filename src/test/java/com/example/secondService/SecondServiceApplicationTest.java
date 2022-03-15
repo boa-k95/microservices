@@ -1,8 +1,8 @@
 package com.example.secondService;
-import com.example.secondService.commandPattern.CommandInput;
-import com.example.secondService.commandPattern.CommandOutput;
-import com.example.secondService.commandPattern.Numbercommand;
-import com.example.secondService.factory.GeneralDTOfactory;
+import com.example.secondService.randNumberCommand.CommandInput;
+import com.example.secondService.randNumberCommand.CommandOutput;
+import com.example.secondService.randNumberCommand.Numbercommand;
+import com.example.secondService.factory.checkInfoCommandFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class SecondServiceApplicationTest extends BaseclassTest {
 
 	 @Autowired private BeanFactory beanFactory;
-	 @Autowired private GeneralDTOfactory DTOfactory;
+	 @Autowired private checkInfoCommandFactory DTOfactory;
 
 
 	@Test

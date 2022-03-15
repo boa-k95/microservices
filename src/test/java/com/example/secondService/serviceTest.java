@@ -1,6 +1,6 @@
 package com.example.secondService;
 
-import com.example.secondService.commandPattern.CommandInput;
+import com.example.secondService.randNumberCommand.CommandInput;
 import com.example.secondService.services.generatedNumberService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 
 import org.mockito.Mockito;
 
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -46,6 +45,8 @@ public class serviceTest extends BaseclassTest {
         Assert.assertEquals("same number", expected, mockedResponse);
 
     }
+
+
 }
 
 

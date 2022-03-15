@@ -1,4 +1,4 @@
-package com.example.secondService.commandPattern;
+package com.example.secondService.randNumberCommand;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

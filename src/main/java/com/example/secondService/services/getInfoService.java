@@ -1,18 +1,23 @@
 package com.example.secondService.services;
 
-import com.example.secondService.DTO.requestDTO;
+
+import com.example.secondService.checkInfoCommand.checkcommandInput;
 import org.springframework.stereotype.Service;
 
 @Service
 public class getInfoService {
 
-    public  boolean checkSuccess(requestDTO dtoRequest) {
+    public String checkSuccess(checkcommandInput input) {
+        String messageToPublish;
+        if (input != null) {
 
-        if (dtoRequest != null) {
-
-            return true;
+        messageToPublish = input.getWelcome_text();
         }
-
-        return false;
+        else{
+            return  null;
+        }
+        return messageToPublish;
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.secondService.commandPattern;
+package com.example.secondService.randNumberCommand;
 
 import com.example.secondService.services.generatedNumberService;
 import lombok.RequiredArgsConstructor;
