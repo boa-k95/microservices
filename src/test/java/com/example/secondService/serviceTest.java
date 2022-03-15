@@ -8,13 +8,15 @@ import org.junit.runner.RunWith;
 
 import org.mockito.Mockito;
 
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.mockito.ArgumentMatchers.anyInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class serviceTest extends BaseTestClass {
+
+public class serviceTest extends BaseclassTest {
 
     @MockBean
     private generatedNumberService service;
