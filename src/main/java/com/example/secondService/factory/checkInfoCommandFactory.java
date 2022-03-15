@@ -30,7 +30,7 @@ public class checkInfoCommandFactory {
           String message = WELCOME_TEXT.concat(req.getCustomer().getName());
         checkcommandInput input = new checkcommandInput();
         input.setDto(req);
-        input.setWelcome_text(message);
+
         logger.info("inputCommand-------> {}",input);
         return  input;
     }

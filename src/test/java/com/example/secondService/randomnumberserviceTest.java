@@ -2,7 +2,7 @@ package com.example.secondService;
 
 import com.example.secondService.randNumberCommand.CommandInput;
 import com.example.secondService.services.generatedNumberService;
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -15,7 +15,8 @@ import static org.mockito.ArgumentMatchers.anyInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 
-public class serviceTest extends BaseclassTest {
+public class randomnumberserviceTest extends BaseclassTest {
+    public static final int MOCKED_RESPONSE = 18;
 
     @MockBean
     private generatedNumberService service;
@@ -26,23 +27,20 @@ public class serviceTest extends BaseclassTest {
         input.setNumber(9);
         int number = input.getNumber();
 
-        int mockedResponse = 18;
 
-        Mockito.when(service.checkSize(number)).thenReturn(mockedResponse);
-        Assert.assertEquals(mockedResponse, 18);
+        Mockito.when(service.checkSize(number)).thenReturn(MOCKED_RESPONSE);
+        assertEquals(MOCKED_RESPONSE, 18);
     }
 
     @Test
     public void testRandomNumberKO() {
         CommandInput input = new CommandInput();
-        input.setNumber(9);
+        input.setNumber(90);
         int number = input.getNumber();
 
-        int mockedResponse = 18;
-
-        Mockito.when(service.checkSize(anyInt())).thenReturn(18);
-        int expected = service.checkSize(number);
-        Assert.assertEquals("same number", expected, mockedResponse);
+        Mockito.when(service.checkSize(anyInt())).thenReturn(MOCKED_RESPONSE);
+        //int expected = service.checkSize(number);
+        assertEquals("not equals",MOCKED_RESPONSE,service.checkSize(number));
 
     }
 

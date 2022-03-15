@@ -6,5 +6,4 @@ import lombok.Data;
 @Data
 public class checkcommandInput {
     private request dto;
-    private String welcome_text;
 }

@@ -23,7 +23,7 @@ public class commonFactory {
         request req = new request();
         req.setCustomer(reqDTO.getCus());
         req.setNumber(reqDTO.getNumber());
-        reqDTO.setType(reqDTO.getType());
+        req.setType(reqDTO.getType());
         return  req;
     }
 }

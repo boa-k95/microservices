@@ -19,8 +19,7 @@ public class checkCommand extends BaseCommand<checkcommandOutput> {
     @Override
     public checkcommandOutput execute() throws Exception {
         checkcommandOutput output = new checkcommandOutput();
-        String success = service.checkSuccess(input);
-         output.setMessage(success);
+        output  = service.checkSuccess(input);
         return output;
 
     }

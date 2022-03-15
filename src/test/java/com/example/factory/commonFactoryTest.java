@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class commonFactoryTest extends BaseclassTest {
+    public static final String WELCOME_TEXT_TEST = "Welcome";
 
     @Autowired private commonFactory commonfactory;
     public static final customer CUSTOMER = new customer();
@@ -23,7 +24,7 @@ public class commonFactoryTest extends BaseclassTest {
         CUSTOMER.setID(74749);
         CUSTOMER.setName("kurtis");
         CUSTOMER.setEmail("kurtisboama@gmail.com");
-        CUSTOMER.setSurname("");
+        CUSTOMER.setSurname("boama");
     }
 
  public static final customerDTO CUSTOMER_DTO = new customerDTO();
@@ -44,9 +45,9 @@ public class commonFactoryTest extends BaseclassTest {
      }
  public static final requestDTO REQUEST_DTO = new requestDTO();
      static {
-         REQUEST_DTO.setType(REQUEST.getType());
          REQUEST_DTO.setNumber(REQUEST.getNumber());
          REQUEST_DTO.setCus(REQUEST.getCustomer());
+         REQUEST_DTO.setType(REQUEST.getType());
 
      }
 
@@ -56,8 +57,9 @@ public class commonFactoryTest extends BaseclassTest {
      }
 
 
+     @Test
      public void checkBothRequestObjects(){
-         assertEquals("wroong different objects",commonFactoryTest.REQUEST ,commonfactory.createRequest(REQUEST_DTO));
+         assertEquals("wroong different objects",commonFactoryTest.REQUEST ,commonfactory.createRequest(commonFactoryTest.REQUEST_DTO));
 
      }
 }

@@ -2,21 +2,24 @@ package com.example.secondService.services;
 
 
 import com.example.secondService.checkInfoCommand.checkcommandInput;
+import com.example.secondService.checkInfoCommand.checkcommandOutput;
 import org.springframework.stereotype.Service;
 
 @Service
 public class getInfoService {
+    public static final String WELCOME_MESSAGE = "WELCOME";
+    public checkcommandOutput checkSuccess(checkcommandInput input) {
 
-    public String checkSuccess(checkcommandInput input) {
-        String messageToPublish;
+      checkcommandOutput output  = new checkcommandOutput();
+
         if (input != null) {
 
-        messageToPublish = input.getWelcome_text();
+        output.setMessage(WELCOME_MESSAGE.concat(" ").concat(input.getDto().getCustomer().getName()));
         }
         else{
             return  null;
         }
-        return messageToPublish;
+        return output;
     }
 
 
