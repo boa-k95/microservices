@@ -1,21 +1,22 @@
 package com.example.secondService.controller;
 
 
-import com.example.secondService.commandPattern.*;
-import com.example.secondService.factory.GeneralDTOfactory;
-import com.example.secondService.factory.requestFactory;
+import com.example.secondService.checkInfoCommand.checkCommand;
+import com.example.secondService.checkInfoCommand.checkcommandInput;
+import com.example.secondService.checkInfoCommand.checkcommandOutput;
+import com.example.secondService.randNumberCommand.*;
+import com.example.secondService.factory.checkInfoCommandFactory;
+import com.example.secondService.factory.commonFactory;
 import com.example.secondService.model.request;
-import org.apache.coyote.http11.filters.VoidInputFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
+
 import javax.validation.Valid;
 import java.net.InetAddress;
 import java.util.*;
@@ -28,13 +29,10 @@ public class secondController {
     @Autowired
     private BeanFactory beanFactory;
     @Autowired
-    private GeneralDTOfactory generalDTOfactory;
+    private checkInfoCommandFactory checkInfoCommandfactory;
 
-    @Autowired
-    private requestFactory reqFactory;
+    @Autowired private commonFactory commonfactory;
 
-    @Autowired
-    private RestTemplate restTemplate;
 
     @Value("${token}")
     private String token;
@@ -51,12 +49,14 @@ public class secondController {
 
         localAddress = InetAddress.getLocalHost().getHostAddress();
         logger.info("----LOCAL ADDRESS ---- {}", localAddress);
-        CommandInput input = generalDTOfactory.createIntegerNumber(num);
+        CommandInput input = checkInfoCommandfactory.createIntegerNumber(num);
         Numbercommand commandExecute = beanFactory.getBean(Numbercommand.class, input);
         CommandOutput Output = commandExecute.execute();
         logger.info("CommandOutput--------->{}", Output);
         return "---------".concat(token)+"----"+Output.getRandomNumber();
     }
+
+
     @GetMapping("/getConfigurations")
     public @ResponseBody Map<String,String> getAllConfig(){
         Properties systemProperties = System.getProperties();
@@ -72,13 +72,13 @@ public class secondController {
     }
 
    @PostMapping(value = "/check")
-    public ResponseEntity<checkcommandOutput> getInformattion(@RequestBody @Valid request req) throws Exception {
+    public @ResponseBody String  getInformattion(@RequestBody @Valid request req) throws Exception {
+    checkcommandInput input = checkInfoCommandfactory.createcheckCommandInput(req);
 
-    checkcommandInput input = reqFactory.createcheckcommandInput(req);
     checkCommand command = beanFactory.getBean(checkCommand.class, input);
-    Boolean output = command.execute();
+       checkcommandOutput output = command.execute();
     checkcommandOutput commandoutput = new checkcommandOutput();
-    commandoutput.setSuccess(output);
-    return ResponseEntity.ok(commandoutput);
+
+    return commandoutput.getMessage();
     }
 }

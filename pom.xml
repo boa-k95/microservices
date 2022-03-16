@@ -6,7 +6,6 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.6</version>
-        <relativePath/>
     </parent>
     <groupId>com.example</groupId>
     <artifactId>secondService</artifactId>
@@ -70,6 +69,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
@@ -79,15 +79,6 @@
             <version>2.6.4</version>
             <scope>runtime</scope>
         </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.maven.wagon</groupId>
-            <artifactId>wagon</artifactId>
-            <version>3.5.1</version>
-            <type>pom</type>
-        </dependency>
-    </dependencies>
 
     <!--<dependencyManagement>
     <dependencies>
@@ -101,17 +92,26 @@
     </dependencies>
     </dependencyManagement>-->
 
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-           <configuration>
-              <systemPropertyVariables>
-                  <property>C:\Program Files\apache-maven-3.5.4\bin</property>
-              </systemPropertyVariables>
-           </configuration>
             </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>3.0.0-M5</version>
+                    </dependency>
+                </dependencies>
+        </plugin>
         </plugins>
     </build>
 

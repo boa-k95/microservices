@@ -1,18 +1,26 @@
 package com.example.secondService.services;
 
-import com.example.secondService.DTO.requestDTO;
+
+import com.example.secondService.checkInfoCommand.checkcommandInput;
+import com.example.secondService.checkInfoCommand.checkcommandOutput;
 import org.springframework.stereotype.Service;
 
 @Service
 public class getInfoService {
+    public static final String WELCOME_MESSAGE = "WELCOME";
+    public checkcommandOutput checkSuccess(checkcommandInput input) {
 
-    public  boolean checkSuccess(requestDTO dtoRequest) {
+      checkcommandOutput output  = new checkcommandOutput();
 
-        if (dtoRequest != null) {
+        if (input != null) {
 
-            return true;
+        output.setMessage(WELCOME_MESSAGE.concat(" ").concat(input.getDto().getCustomer().getName()));
         }
-
-        return false;
+        else{
+            return  null;
+        }
+        return output;
     }
+
+
 }

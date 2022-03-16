@@ -10,8 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class request {
-
-    @NotNull @NotBlank @NotEmpty
+ @NotNull @NotBlank @NotEmpty
     private String number;
     private customer customer;
     private accType type;

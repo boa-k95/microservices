@@ -1,4 +1,4 @@
-package com.example.secondService.commandPattern;
+package com.example.secondService.randNumberCommand;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
