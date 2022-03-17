@@ -53,13 +53,13 @@ public class commonFactoryTest extends BaseclassTest {
 
      @Test
     public void checkBothCustomerObjects(){
-        assertEquals("wroong different objects",commonFactoryTest.CUSTOMER ,commonfactory.createCustomerEntity(commonFactoryTest.CUSTOMER_DTO));
+        assertEquals("wrong different objects",commonFactoryTest.CUSTOMER ,commonfactory.createCustomerEntity(commonFactoryTest.CUSTOMER_DTO));
      }
 
 
      @Test
      public void checkBothRequestObjects(){
-         assertEquals("wroong different objects",commonFactoryTest.REQUEST ,commonfactory.createRequest(commonFactoryTest.REQUEST_DTO));
+         assertEquals("wrong different objects",commonFactoryTest.REQUEST ,commonfactory.createRequest(commonFactoryTest.REQUEST_DTO));
 
      }
 }

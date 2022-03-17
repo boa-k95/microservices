@@ -23,7 +23,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping(value = "getId")
-@RefreshScope
+
 public class secondController {
     private static final Logger logger = LoggerFactory.getLogger(secondController.class);
     @Autowired
@@ -31,20 +31,19 @@ public class secondController {
     @Autowired
     private checkInfoCommandFactory checkInfoCommandfactory;
 
-    @Autowired private commonFactory commonfactory;
+    @Autowired
+    private commonFactory commonfactory;
 
 
-    @Value("${token}")
-    private String token;
 
-    @Value("${my.app}")
-    private String appName;
+
+   /* @Value("${my.app}")
+    private String appName;*/
 
     @GetMapping(value = "/message/{num}")
-    public @ResponseBody String showMessage(@PathVariable int num) throws Exception {
+    public String showMessage(@PathVariable int num) throws Exception {
 
-          String localAddress = null;
-
+        String localAddress = null;
 
 
         localAddress = InetAddress.getLocalHost().getHostAddress();
@@ -53,32 +52,34 @@ public class secondController {
         Numbercommand commandExecute = beanFactory.getBean(Numbercommand.class, input);
         CommandOutput Output = commandExecute.execute();
         logger.info("CommandOutput--------->{}", Output);
-        return "---------".concat(token)+"----"+Output.getRandomNumber();
+        return "---------".concat("-------") + "----" + Output.getRandomNumber();
     }
 
 
     @GetMapping("/getConfigurations")
-    public @ResponseBody Map<String,String> getAllConfig(){
+    public @ResponseBody
+    Map<String, String> getAllConfig() {
         Properties systemProperties = System.getProperties();
         Enumeration enuProp = systemProperties.propertyNames();
-     logger.info("GETTING ALL CONFIGURATIONS-----");
-         Map<String,String> getAllConfig = new HashMap<>();
+        logger.info("GETTING ALL CONFIGURATIONS-----");
+        Map<String, String> getAllConfig = new HashMap<>();
         while (enuProp.hasMoreElements()) {
             String propertyName = (String) enuProp.nextElement();
             String propertyValue = systemProperties.getProperty(propertyName);
-            getAllConfig.put(propertyName,propertyValue);
+            getAllConfig.put(propertyName, propertyValue);
         }
         return getAllConfig;
     }
 
-   @PostMapping(value = "/check")
-    public @ResponseBody String  getInformattion(@RequestBody @Valid request req) throws Exception {
-    checkcommandInput input = checkInfoCommandfactory.createcheckCommandInput(req);
+    @PostMapping(value = "/check")
+    public @ResponseBody
+    String getInformattion(@RequestBody @Valid request req) throws Exception {
+        checkcommandInput input = checkInfoCommandfactory.createcheckCommandInput(req);
 
-    checkCommand command = beanFactory.getBean(checkCommand.class, input);
-       checkcommandOutput output = command.execute();
-    checkcommandOutput commandoutput = new checkcommandOutput();
+        checkCommand command = beanFactory.getBean(checkCommand.class, input);
+        checkcommandOutput output = command.execute();
+        checkcommandOutput commandoutput = new checkcommandOutput();
 
-    return commandoutput.getMessage();
+        return commandoutput.getMessage();
     }
 }
