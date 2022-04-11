@@ -6,15 +6,12 @@ import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.checkInfoCommand.checkcommandOutput;
 import com.example.secondService.randNumberCommand.*;
 import com.example.secondService.factory.checkInfoCommandFactory;
-import com.example.secondService.factory.commonFactory;
 import com.example.secondService.model.request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,7 +20,6 @@ import java.util.*;
 
 @RestController
 @RequestMapping(value = "getId")
-
 public class secondController {
     private static final Logger logger = LoggerFactory.getLogger(secondController.class);
     @Autowired
@@ -31,14 +27,10 @@ public class secondController {
     @Autowired
     private checkInfoCommandFactory checkInfoCommandfactory;
 
-    @Autowired
-    private commonFactory commonfactory;
 
 
-
-
-   /* @Value("${my.app}")
-    private String appName;*/
+    @Value("${welcome_message : not found}")
+    private String appName;
 
     @GetMapping(value = "/message/{num}")
     public String showMessage(@PathVariable int num) throws Exception {
@@ -52,7 +44,7 @@ public class secondController {
         Numbercommand commandExecute = beanFactory.getBean(Numbercommand.class, input);
         CommandOutput Output = commandExecute.execute();
         logger.info("CommandOutput--------->{}", Output);
-        return "---------".concat("-------") + "----" + Output.getRandomNumber();
+        return "---------".concat(appName) + "----" + Output.getRandomNumber();
     }
 
 

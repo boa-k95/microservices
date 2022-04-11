@@ -1,25 +1,15 @@
 spring:
+  profiles:
+    active: test
+  application:
+    name: config-client
   cloud:
     compatibility-verifier:
       enabled: false
-  config:
-    import: "optional:configserver:http://localhost:8012"
-    fail-fast: false
-
-  devtools:
-    add-properties: false
-
-management:
-  security:
-    enabled: false
-  endpoints:
-    web:
-      exposure:
-        include: refresh
+    config:
+      import: optional:configserver:http://localhost:8012
+      enabled: false
+      import-check: false
 
 server:
-  port: 8086
-
-logging:
-  level:
-    web: 'DEBUG'
+  port: 9090
