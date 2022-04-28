@@ -8,8 +8,6 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class customerDTO {
-
-    private long ID;
     private String name;
     private String surname;
     private String email;

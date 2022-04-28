@@ -4,9 +4,12 @@ package com.example.secondService.controller;
 import com.example.secondService.checkInfoCommand.checkCommand;
 import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.checkInfoCommand.checkcommandOutput;
-import com.example.secondService.randNumberCommand.*;
 import com.example.secondService.factory.checkInfoCommandFactory;
+import com.example.secondService.model.customer;
 import com.example.secondService.model.request;
+import com.example.secondService.randNumberCommand.CommandInput;
+import com.example.secondService.randNumberCommand.CommandOutput;
+import com.example.secondService.randNumberCommand.Numbercommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanFactory;
@@ -16,7 +19,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.InetAddress;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
 @RestController
 @RequestMapping(value = "getId")
@@ -26,7 +32,6 @@ public class secondController {
     private BeanFactory beanFactory;
     @Autowired
     private checkInfoCommandFactory checkInfoCommandfactory;
-
 
 
     @Value("${welcome_message : not found}")
@@ -63,15 +68,14 @@ public class secondController {
         return getAllConfig;
     }
 
-    @PostMapping(value = "/check")
-    public @ResponseBody
-    String getInformattion(@RequestBody @Valid request req) throws Exception {
+    @GetMapping(value = "/check")
+    public customer getInformation(@RequestBody @Valid request req) throws Exception {
+        logger.info("original Request------>{}",req);
         checkcommandInput input = checkInfoCommandfactory.createcheckCommandInput(req);
+         logger.info("checkcommandinput ----->{}",req);
 
         checkCommand command = beanFactory.getBean(checkCommand.class, input);
         checkcommandOutput output = command.execute();
-        checkcommandOutput commandoutput = new checkcommandOutput();
-
-        return commandoutput.getMessage();
+        return output.getReturnCustomer();
     }
 }

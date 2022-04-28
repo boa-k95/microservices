@@ -1,24 +1,23 @@
 package com.example.secondService.model;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.stereotype.Component;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 
 @Data
-@Component
 public class customer {
-    @NotNull
-    private long ID;
+
     @NotBlank
+    @JsonProperty("Customer Name")
     private String name;
     @NotBlank
+    @JsonProperty("Customer Surname")
     private String surname;
     @Email
+    @JsonProperty("Customer Email")
     private String email;
 
 }

@@ -3,11 +3,14 @@ package com.example.factory;
 import com.example.secondService.BaseclassTest;
 import com.example.secondService.DTO.customerDTO;
 import com.example.secondService.DTO.requestDTO;
+import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.factory.commonFactory;
 import com.example.secondService.model.accType;
 import com.example.secondService.model.customer;
 import com.example.secondService.model.request;
 import static org.junit.Assert.*;
+
+import com.example.secondService.randNumberCommand.CommandInput;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +22,10 @@ public class commonFactoryTest extends BaseclassTest {
 
     @Autowired private commonFactory commonfactory;
     public static final customer CUSTOMER = new customer();
+    public static final checkcommandInput COMMAND_INPUT = new checkcommandInput();
+
 
     static {
-        CUSTOMER.setID(74749);
         CUSTOMER.setName("kurtis");
         CUSTOMER.setEmail("kurtisboama@gmail.com");
         CUSTOMER.setSurname("boama");
@@ -30,7 +34,6 @@ public class commonFactoryTest extends BaseclassTest {
  public static final customerDTO CUSTOMER_DTO = new customerDTO();
 
     static {
-        CUSTOMER_DTO.setID(CUSTOMER.getID());
         CUSTOMER_DTO.setEmail(CUSTOMER.getEmail());
         CUSTOMER_DTO.setSurname(CUSTOMER.getSurname());
         CUSTOMER_DTO.setName(CUSTOMER.getName());
@@ -40,13 +43,13 @@ public class commonFactoryTest extends BaseclassTest {
 
      static{
          REQUEST.setNumber("795");
-         REQUEST.setCustomer(CUSTOMER);
+         REQUEST.setPerson(CUSTOMER);
          REQUEST.setType(accType.MAGG_CHILD);
      }
  public static final requestDTO REQUEST_DTO = new requestDTO();
      static {
          REQUEST_DTO.setNumber(REQUEST.getNumber());
-         REQUEST_DTO.setCus(REQUEST.getCustomer());
+         REQUEST_DTO.setCus(REQUEST.getPerson());
          REQUEST_DTO.setType(REQUEST.getType());
 
      }

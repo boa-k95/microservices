@@ -13,13 +13,14 @@ import org.springframework.stereotype.Component;
 public class checkCommand extends BaseCommand<checkcommandOutput> {
 
     private final checkcommandInput input;
-    @Autowired private getInfoService service;
+    @Autowired
+    private getInfoService service;
 
 
     @Override
-    public checkcommandOutput execute() throws Exception {
-        checkcommandOutput output = new checkcommandOutput();
-        output  = service.checkSuccess(input);
+    public checkcommandOutput execute()  {
+        checkcommandOutput output;
+        output = service.checkSuccess(input);
         return output;
 
     }

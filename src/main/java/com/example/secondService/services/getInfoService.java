@@ -3,23 +3,23 @@ package com.example.secondService.services;
 
 import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.checkInfoCommand.checkcommandOutput;
+import com.example.secondService.factory.commonFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class getInfoService {
     public static final String WELCOME_MESSAGE = "WELCOME";
+    @Autowired
+    private commonFactory factory;
+
     public checkcommandOutput checkSuccess(checkcommandInput input) {
+        checkcommandOutput output = new checkcommandOutput();
 
-      checkcommandOutput output  = new checkcommandOutput();
-
-        if (input != null) {
-
-        output.setMessage(WELCOME_MESSAGE.concat(" ").concat(input.getDto().getCustomer().getName()));
+        if (input != null){
+            output.setReturnCustomer(input.getDto().getPerson());
         }
-        else{
-            return  null;
-        }
-        return output;
+        return  output;
     }
 
 

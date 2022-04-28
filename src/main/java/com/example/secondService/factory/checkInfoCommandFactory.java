@@ -1,5 +1,6 @@
 package com.example.secondService.factory;
 
+import com.example.secondService.DTO.requestDTO;
 import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.randNumberCommand.CommandInput;
 import com.example.secondService.model.request;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class checkInfoCommandFactory {
     public static final String WELCOME_TEXT= "Welcome" ;
 
-    @Autowired commonFactory commonfactory;
+    @Autowired private commonFactory commonfactory;
     private static final Logger logger = LoggerFactory.getLogger(checkInfoCommandFactory.class);
 
     public static CommandInput createIntegerNumber(int number) {
@@ -27,10 +28,11 @@ public class checkInfoCommandFactory {
 
 
     public static checkcommandInput createcheckCommandInput(request req){
-          String message = WELCOME_TEXT.concat(req.getCustomer().getName());
         checkcommandInput input = new checkcommandInput();
-        input.setDto(req);
 
+        if(req!=null) {
+            input.setDto(req);
+        }
         logger.info("inputCommand-------> {}",input);
         return  input;
     }
