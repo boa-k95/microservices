@@ -13,4 +13,4 @@ management:
         include: refresh
 
 server:
-  port: 8082
+  port: 9009
