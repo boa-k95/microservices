@@ -7,7 +7,7 @@ pipeline {
                 git url: 'https://github.com/boa-k95/microservices.git', branch: 'env/svil'
             }
         }
-        stage('Build') {
+        stage('Build APP') {
             steps {
                 // Build maven project
                 bat "mvn clean install -Dmaven.test.skip=true"
