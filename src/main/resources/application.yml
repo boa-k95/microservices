@@ -12,5 +12,4 @@ spring:
       import-check: false
 
 server:
-  port: 9090
-my: 9098
+  port: 9009
