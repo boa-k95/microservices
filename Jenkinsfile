@@ -32,7 +32,7 @@ pipeline {
                 }
               }
             }
-        stage('Docker Build') {
+        stage('Docker Image Build') {
       steps {
        echo 'hello World'
       }
