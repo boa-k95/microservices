@@ -23,15 +23,21 @@ pipeline {
 
             }
         }
-            stage('Sonarqube Quality Control') {
+            stage('Sonarqube  Control') {
               steps {
                 withSonarQubeEnv(installationName: 'sonarConfig') {
                  // bat "mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
                       sh './mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
-
                 }
               }
             }
+              stage("Quality Gate") {
+                  steps {
+                    timeout(time: 2, unit: 'MINUTES') {
+                      waitForQualityGate abortPipeline: true
+                    }
+                  }
+                  }
         stage('Docker Image Build') {
       steps {
        echo 'hello World'
