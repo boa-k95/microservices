@@ -23,7 +23,6 @@ pipeline {
 
             }
         }
-         stages {
             stage('Scan') {
               steps {
                 withSonarQubeEnv(installationName: 'jenkins-sonarqubeToken') {
