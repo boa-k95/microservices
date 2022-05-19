@@ -26,7 +26,7 @@ pipeline {
             stage('Sonarqube Control') {
               steps {
                 withSonarQubeEnv(installationName: 'sonarConfig') {
-                bat "mvn clean  install org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
+                bat "mvn clean  package org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
                 }
               }
             }
