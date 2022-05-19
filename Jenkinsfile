@@ -23,7 +23,7 @@ pipeline {
 
             }
         }
-            stage('Sonarqube Anaylsis Control') {
+            stage('Sonarqube Control') {
               steps {
                 withSonarQubeEnv(installationName: 'sonarConfig') {
                 bat "mvn clean  install org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
@@ -31,6 +31,11 @@ pipeline {
               }
             }
 
+            stage("Quality Gate"){
+                steps {
+                       waitForQualityGate abortPipeline: true
+                         }
+            }
         stage('Docker Image Build') {
       steps {
        echo 'hello World'
