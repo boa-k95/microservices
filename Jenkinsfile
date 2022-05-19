@@ -31,6 +31,7 @@ pipeline {
               }
             }
              stage("Quality Gate"){
+               steps{
                       timeout(time: 1, unit: 'HOURS') {
                           def qg = waitForQualityGate()
                           if (qg.status != 'OK') {
@@ -38,6 +39,7 @@ pipeline {
                           }
                       }
                   }
+            }
         stage('Docker Image Build') {
       steps {
        echo 'hello World'
