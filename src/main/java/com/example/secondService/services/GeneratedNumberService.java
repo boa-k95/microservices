@@ -3,7 +3,7 @@ package com.example.secondService.services;
 import org.springframework.stereotype.Service;
 
 @Service
-public class generatedNumberService {
+public class GeneratedNumberService {
 
     public int checkSize(int number) {
 

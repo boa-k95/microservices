@@ -1,6 +1,6 @@
 package com.example.command.randomNumberTest;
 
-import com.example.secondService.BaseclassTest;
+import com.example.secondService.BaseClassTest;
 import com.example.secondService.randNumberCommand.CommandInput;
 import com.example.secondService.randNumberCommand.CommandOutput;
 import com.example.secondService.randNumberCommand.Numbercommand;
@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class randomnumberCommandTest extends BaseclassTest {
+public class RandomnumberCommandTest extends BaseClassTest {
     @Autowired private BeanFactory beanFactory;
 
     @Test

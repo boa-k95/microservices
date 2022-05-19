@@ -1,6 +1,6 @@
 package com.example.secondService.randNumberCommand;
 
-import com.example.secondService.services.generatedNumberService;
+import com.example.secondService.services.GeneratedNumberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class Numbercommand extends BaseCommand<CommandOutput> {
    private final CommandInput input;
-@Autowired private generatedNumberService service;
+@Autowired private GeneratedNumberService service;
 
 @Override
     public CommandOutput execute() throws Exception {

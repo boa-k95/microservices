@@ -1,9 +1,9 @@
 package com.example.secondService.checkInfoCommand;
 
-import com.example.secondService.model.request;
+import com.example.secondService.model.Request;
 import lombok.Data;
 
 @Data
 public class checkcommandInput {
-    private request dto;
+    private Request dto;
 }

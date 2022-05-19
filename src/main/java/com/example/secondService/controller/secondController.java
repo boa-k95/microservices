@@ -5,8 +5,8 @@ import com.example.secondService.checkInfoCommand.checkCommand;
 import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.checkInfoCommand.checkcommandOutput;
 import com.example.secondService.factory.checkInfoCommandFactory;
-import com.example.secondService.model.customer;
-import com.example.secondService.model.request;
+import com.example.secondService.model.Customer;
+import com.example.secondService.model.Request;
 import com.example.secondService.randNumberCommand.CommandInput;
 import com.example.secondService.randNumberCommand.CommandOutput;
 import com.example.secondService.randNumberCommand.Numbercommand;
@@ -69,7 +69,7 @@ public class secondController {
     }
 
     @GetMapping(value = "/check")
-    public customer getInformation(@RequestBody @Valid request req) throws Exception {
+    public Customer getInformation(@RequestBody @Valid Request req) throws Exception {
         logger.info("original Request------>{}",req);
         checkcommandInput input = checkInfoCommandfactory.createcheckCommandInput(req);
          logger.info("checkcommandinput ----->{}",req);

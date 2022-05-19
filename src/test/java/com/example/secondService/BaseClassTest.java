@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(classes = {ConfigClass.class})
 @ActiveProfiles("app-svil")
 @RunWith(SpringRunner.class)
-public abstract class BaseclassTest {
+public abstract class BaseClassTest {
 
 
 }

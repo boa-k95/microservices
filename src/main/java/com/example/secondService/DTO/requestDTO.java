@@ -1,14 +1,14 @@
 package com.example.secondService.DTO;
 
-import com.example.secondService.model.accType;
+import com.example.secondService.model.AccType;
 
-import com.example.secondService.model.customer;
+import com.example.secondService.model.Customer;
 import lombok.Data;
 
 @Data
 public class requestDTO {
 
     private String number;
-    private accType type;
-    private customer cus;
+    private AccType type;
+    private Customer cus;
     }

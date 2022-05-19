@@ -4,23 +4,23 @@ package com.example.secondService.factory;
 import com.example.secondService.DTO.customerDTO;
 import com.example.secondService.DTO.requestDTO;
 import com.example.secondService.checkInfoCommand.checkcommandInput;
-import com.example.secondService.model.customer;
-import com.example.secondService.model.request;
+import com.example.secondService.model.Customer;
+import com.example.secondService.model.Request;
 import org.springframework.stereotype.Component;
 
 @Component
 public class commonFactory {
 
-    public customer createCustomerEntity(customerDTO dto){
-        customer cus = new customer();
+    public Customer createCustomerEntity(customerDTO dto){
+        Customer cus = new Customer();
         cus.setName(dto.getName());
         cus.setSurname(dto.getSurname());
         cus.setEmail(dto.getEmail());
         return  cus;
     }
 
-    public request createRequest(requestDTO reqDTO){
-        request req = new request();
+    public Request createRequest(requestDTO reqDTO){
+        Request req = new Request();
         req.setPerson(reqDTO.getCus());
         req.setNumber(reqDTO.getNumber());
         req.setType(reqDTO.getType());

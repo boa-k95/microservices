@@ -3,8 +3,8 @@ package com.example.secondService.model;
 import lombok.Data;
 
 @Data
-public class request {
+public class Request {
     private String number;
-    private customer person;
-    private accType type;
+    private Customer person;
+    private AccType type;
 }

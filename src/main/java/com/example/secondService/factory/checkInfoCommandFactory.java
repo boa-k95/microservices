@@ -1,9 +1,8 @@
 package com.example.secondService.factory;
 
-import com.example.secondService.DTO.requestDTO;
 import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.randNumberCommand.CommandInput;
-import com.example.secondService.model.request;
+import com.example.secondService.model.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class checkInfoCommandFactory {
     }
 
 
-    public checkcommandInput createcheckCommandInput(request req){
+    public checkcommandInput createcheckCommandInput(Request req){
         checkcommandInput input = new checkcommandInput();
 
         if(req!=null) {

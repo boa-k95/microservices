@@ -1,7 +1,7 @@
 package com.example.secondService;
 
 import com.example.secondService.randNumberCommand.CommandInput;
-import com.example.secondService.services.generatedNumberService;
+import com.example.secondService.services.GeneratedNumberService;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,11 +15,11 @@ import static org.mockito.ArgumentMatchers.anyInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 
-public class randomNumberServiceTest extends BaseclassTest {
+public class RandomNumberServiceTest extends BaseClassTest {
     public static final int MOCKED_RESPONSE = 18;
 
     @MockBean
-    private generatedNumberService service;
+    private GeneratedNumberService service;
 
     @Test
     public void testRandomNumberOk() {

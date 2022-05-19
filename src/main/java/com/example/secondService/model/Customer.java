@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 
 @Data
-public class customer {
+public class Customer {
 
     @NotBlank
     @JsonProperty("Customer Name")

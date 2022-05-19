@@ -1,7 +1,7 @@
 package com.example.secondService.model;
 
 
-public enum accType {
+public enum AccType {
     MAGG_CHILD,
     MINOR_CHILD,
     PARENT

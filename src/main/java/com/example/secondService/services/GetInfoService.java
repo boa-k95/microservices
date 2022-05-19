@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class getInfoService {
+public class GetInfoService {
     public static final String WELCOME_MESSAGE = "WELCOME";
     @Autowired
     private commonFactory factory;

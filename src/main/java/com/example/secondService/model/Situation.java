@@ -3,6 +3,6 @@ package com.example.secondService.model;
 import lombok.Data;
 
 @Data
-public class situation {
+public class Situation {
     private boolean success;
 }
