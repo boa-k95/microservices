@@ -26,16 +26,11 @@ pipeline {
             stage('Sonarqube Anaylsis Control') {
               steps {
                 withSonarQubeEnv(installationName: 'sonarConfig') {
-                bat "mvn clean  package org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
+                bat "mvn clean  install org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar"
                 }
               }
             }
 
-               stage("Quality gate") {
-                           steps {
-                               waitForQualityGate abortPipeline: true
-                           }
-                       }
         stage('Docker Image Build') {
       steps {
        echo 'hello World'
