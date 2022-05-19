@@ -1,8 +1,8 @@
 package com.example.factory;
 
 import com.example.secondService.BaseClassTest;
-import com.example.secondService.DTO.customerDTO;
-import com.example.secondService.DTO.requestDTO;
+import com.example.secondService.DTO.CustomerDTO;
+import com.example.secondService.DTO.RequestDTO;
 import com.example.secondService.checkInfoCommand.checkcommandInput;
 import com.example.secondService.factory.commonFactory;
 import com.example.secondService.model.AccType;
@@ -30,7 +30,7 @@ public class CommonFactoryTest extends BaseClassTest {
         CUSTOMER.setSurname("boama");
     }
 
- public static final customerDTO CUSTOMER_DTO = new customerDTO();
+ public static final CustomerDTO CUSTOMER_DTO = new CustomerDTO();
 
     static {
         CUSTOMER_DTO.setEmail(CUSTOMER.getEmail());
@@ -45,7 +45,7 @@ public class CommonFactoryTest extends BaseClassTest {
          REQUEST.setPerson(CUSTOMER);
          REQUEST.setType(AccType.MAGG_CHILD);
      }
- public static final requestDTO REQUEST_DTO = new requestDTO();
+ public static final RequestDTO REQUEST_DTO = new RequestDTO();
      static {
          REQUEST_DTO.setNumber(REQUEST.getNumber());
          REQUEST_DTO.setCus(REQUEST.getPerson());

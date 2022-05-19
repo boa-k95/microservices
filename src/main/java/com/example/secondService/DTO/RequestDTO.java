@@ -6,7 +6,7 @@ import com.example.secondService.model.Customer;
 import lombok.Data;
 
 @Data
-public class requestDTO {
+public class RequestDTO {
 
     private String number;
     private AccType type;
