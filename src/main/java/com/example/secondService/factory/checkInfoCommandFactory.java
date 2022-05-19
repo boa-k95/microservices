@@ -27,7 +27,7 @@ public class checkInfoCommandFactory {
     }
 
 
-    public static checkcommandInput createcheckCommandInput(request req){
+    public checkcommandInput createcheckCommandInput(request req){
         checkcommandInput input = new checkcommandInput();
 
         if(req!=null) {

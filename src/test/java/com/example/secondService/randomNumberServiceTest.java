@@ -15,7 +15,7 @@ import static org.mockito.ArgumentMatchers.anyInt;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 
-public class randomnumberserviceTest extends BaseclassTest {
+public class randomNumberServiceTest extends BaseclassTest {
     public static final int MOCKED_RESPONSE = 18;
 
     @MockBean
@@ -29,7 +29,7 @@ public class randomnumberserviceTest extends BaseclassTest {
 
 
         Mockito.when(service.checkSize(number)).thenReturn(MOCKED_RESPONSE);
-        assertEquals(MOCKED_RESPONSE, 18);
+        assertEquals(18,MOCKED_RESPONSE);
     }
 
     @Test
