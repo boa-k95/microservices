@@ -45,20 +45,7 @@ public class RandomNumberServiceTest extends BaseClassTest {
         assertEquals("not equals",MOCKED_RESPONSE,service.checkSize(number));
 
     }
-
-    @Test
-    public void testFailAssertMethod(){
-        try {
-            service.method(-1);
-            fail();
-        } catch (Exception e) {
-          //  fail("Should of thrown an IllegalArgumentException");
-
-            assertTrue(e instanceof  IllegalArgumentException);
-
-        }
-
     }
-    }
+
 
 
