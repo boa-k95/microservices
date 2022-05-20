@@ -3,6 +3,8 @@ package com.example.secondService;
 import com.example.secondService.randNumberCommand.CommandInput;
 import com.example.secondService.services.GeneratedNumberService;
 import static org.junit.Assert.*;
+
+import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -44,7 +46,19 @@ public class RandomNumberServiceTest extends BaseClassTest {
 
     }
 
+    @Test
+    public void testFailAssertMethod(){
+        try {
+            service.method(-1);
+            fail();
+        } catch (Exception e) {
+          //  fail("Should of thrown an IllegalArgumentException");
 
-}
+            assertTrue(e instanceof  IllegalArgumentException);
+
+        }
+
+    }
+    }
 
 

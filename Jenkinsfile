@@ -7,6 +7,11 @@ pipeline {
                 git url: 'https://github.com/boa-k95/microservices.git', branch: 'env/svil'
             }
         }
+        stage("CheckOut"){
+          steps{
+                    checkout scm
+          }
+        }
         stage('Build APP') {
             steps {
                 // Build maven project
@@ -32,7 +37,7 @@ pipeline {
             }
                stage("Quality Gate") {
                           steps {
-                            timeout(time: 1, unit: 'HOURS') {
+                            timeout(time: 1, unit: 'MINUTES') {
                               waitForQualityGate abortPipeline: true
                             }
                           }

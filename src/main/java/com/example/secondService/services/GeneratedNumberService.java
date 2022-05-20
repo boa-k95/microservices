@@ -9,5 +9,4 @@ public class GeneratedNumberService {
 
         return number * 2;
     }
-
 }
