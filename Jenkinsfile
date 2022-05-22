@@ -1,7 +1,5 @@
 pipeline {
     enviornment{
-    registry = "YourDockerhubAccount/YourRepository"
-    registryCredential = ''
     dockerImage = ''
     }
        agent any
@@ -33,11 +31,10 @@ pipeline {
                 }
               }
             }
+
         stage('Docker Image Build') {
       steps{
-      script {
-      dockerImage = docker.build registry + ":$BUILD_NUMBER"
-      }
+      script {dockerImage = docker.build registry + ":$BUILD_NUMBER" }
     }
     }
 }
