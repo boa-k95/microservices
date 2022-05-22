@@ -1,10 +1,10 @@
 pipeline {
-    agent any
     enviornment{
     registry = "YourDockerhubAccount/YourRepository"
     registryCredential = ''
     dockerImage = ''
     }
+       agent any
     stages {
         stage('Login') {
             steps {
@@ -12,17 +12,11 @@ pipeline {
                 git url: 'https://github.com/boa-k95/microservices.git', branch: 'env/svil'
             }
         }
-        stage("CheckOut"){
-          steps{
-                    checkout scm
-          }
-        }
         stage('Build APP') {
             steps {
                 // Build maven project
                 bat "mvn clean install -Dmaven.test.skip=true"
-
-            }
+             }
         }
 
         stage('Tests') {
@@ -30,8 +24,7 @@ pipeline {
             steps {
                 // Build maven project
                 bat "mvn test"
-
-            }
+                }
         }
             stage('Sonarqube Control') {
               steps {
