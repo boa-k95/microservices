@@ -1,7 +1,8 @@
 pipeline {
     environment{
-    registry = "boakurtis/spring-docker-demo"
+    registry = "boakurtis/springboot-docker-demo"
     dockerImage = ''
+    registryCredential ='DockerHubCredentials'
     }
        agent any
     stages {
@@ -35,7 +36,9 @@ pipeline {
 
  stage('Docker Image Build') {
       steps{
-      script {dockerImage = docker.build registry + ":$BUILD_NUMBER" }
+      script {
+      dockerImage = docker.build registry
+       }
     }
     }
 }
