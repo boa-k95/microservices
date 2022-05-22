@@ -1,5 +1,6 @@
 pipeline {
     environment{
+    registry = "boakurtis/spring-docker-demo"
     dockerImage = ''
     }
        agent any
