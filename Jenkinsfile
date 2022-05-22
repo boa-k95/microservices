@@ -1,5 +1,5 @@
 pipeline {
-    enviornment{
+    environment{
     dockerImage = ''
     }
        agent any
@@ -31,4 +31,16 @@ pipeline {
                 }
               }
             }
- } }
+
+ stage('Docker Image Build') {
+      steps{
+      script {dockerImage = docker.build registry + ":$BUILD_NUMBER" }
+    }
+    }
+}
+
+
+ }
+
+
+  }
