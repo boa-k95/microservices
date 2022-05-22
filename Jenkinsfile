@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    enviornment{
+    registry = "YourDockerhubAccount/YourRepository"
+    registryCredential = ''
+    dockerImage = ''
+    }
     stages {
         stage('Login') {
             steps {
@@ -35,16 +40,10 @@ pipeline {
                 }
               }
             }
-               stage("Quality Gate") {
-                          steps {
-                            timeout(time: 1, unit: 'MINUTES') {
-                              waitForQualityGate abortPipeline: true
-                            }
-                          }
-                        }
         stage('Docker Image Build') {
-      steps {
-       echo 'hello World'
+      steps{
+      script {
+      dockerImage = docker.build registry + ":$BUILD_NUMBER"
       }
     }
     }
