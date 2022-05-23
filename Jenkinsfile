@@ -44,6 +44,14 @@ pipeline {
     }
     }
 }
-
+ stage('Deploying Docker Image'){
+    steps{
+     script {
+              docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
+              }
+            }
+     }
+ }
 
   }
