@@ -3,7 +3,7 @@ MAINTAINER Kurtis Kwame Edem Boama
 
 RUN mkdir -p /javaProject/src
 WORKDIR /javaProject/src
-COPY . .ex
+COPY . .
 
 ADD target/secondService-0.0.1-SNAPSHOT.jar secondService-0.0.1.jar
 ENTRYPOINT ["java","-jar", "secondService-0.0.1.jar"]
