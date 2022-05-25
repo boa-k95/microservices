@@ -1,7 +1,7 @@
 FROM openjdk:11
 MAINTAINER Kurtis Kwame Edem Boama
 
-RUN mkdir /javaProject/src
+RUN mkdir -p /javaProject/src
 WORKDIR /javaProject/src
 COPY . .ex
 
