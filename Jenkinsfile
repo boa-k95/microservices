@@ -43,7 +43,6 @@ pipeline {
        }
     }
     }
-
  stage('Deploying Docker Image'){
     steps{
      script {

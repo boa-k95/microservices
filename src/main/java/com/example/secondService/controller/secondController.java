@@ -53,7 +53,7 @@ public class secondController {
     }
 
 
-    @GetMapping("/getConfigurations")
+        @GetMapping("/getConfigurations")
     public @ResponseBody
     Map<String, String> getAllConfig() {
         Properties systemProperties = System.getProperties();
@@ -67,7 +67,7 @@ public class secondController {
         }
         return getAllConfig;
     }
-
+    
     @GetMapping(value = "/check")
     public Customer getInformation(@RequestBody @Valid Request req) throws Exception {
         logger.info("original Request------>{}",req);
