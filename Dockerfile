@@ -4,8 +4,8 @@ MAINTAINER Kurtis Kwame Edem Boama
 RUN mkdir -p /javaProject/src
 WORKDIR /javaProject/src
 COPY . .
-
-ADD target/secondService-0.0.1-SNAPSHOT.jar secondService-0.0.1.jar
-ENTRYPOINT ["java","-jar", "secondService-0.0.1.jar"]
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar"]
 EXPOSE 9090
-RUN echo "secondService Dockerfile"
+RUN echo "secondService application Dockerfile"
