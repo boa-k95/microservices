@@ -8,4 +8,4 @@ ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar"]
 EXPOSE 9090
-RUN echo "secondService application Dockerfile"
+RUN echo "secondService2 application Dockerfile"

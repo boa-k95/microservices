@@ -34,7 +34,7 @@ public class secondController {
     private checkInfoCommandFactory checkInfoCommandfactory;
 
 
-    @Value("${welcome_message : not found}")
+    @Value("${welcome_message : not found}") 
     private String appName;
 
     @GetMapping(value = "/message/{num}")
