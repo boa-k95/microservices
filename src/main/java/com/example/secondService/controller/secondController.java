@@ -40,7 +40,7 @@ public class secondController {
     @GetMapping(value = "/message/{num}")
     public String showMessage(@PathVariable int num) throws Exception {
 
-        String localAddress = null;
+        String localAddress;
 
 
         localAddress = InetAddress.getLocalHost().getHostAddress();
@@ -69,10 +69,10 @@ public class secondController {
     }
     
     @GetMapping(value = "/check")
-    public Customer getInformation(@RequestBody @Valid Request req) throws Exception {
+    public Customer getInformation(@RequestBody @Valid Request req) {
         logger.info("original Request------>{}",req);
         checkcommandInput input = checkInfoCommandfactory.createcheckCommandInput(req);
-         logger.info("checkcommandinput ----->{}",req);
+         logger.info("checkcommandinp9ut ----->{}",req);
 
         checkCommand command = beanFactory.getBean(checkCommand.class, input);
         checkcommandOutput output = command.execute();
