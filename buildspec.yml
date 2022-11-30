@@ -9,4 +9,5 @@ phases:
     commands:
       -echo "Build completed"
 artifacts:
-  - target/*.jar
+  files:
+    - target/*.jar
