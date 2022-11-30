@@ -10,5 +10,5 @@ phases:
       - echo "Build completed"
 artifacts:
   files:
-    - target\*.jar
+    - target/*
   discard-paths: yes
