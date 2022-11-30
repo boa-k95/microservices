@@ -1,11 +1,11 @@
 version: 0.2
 phases:
-  pre-build:
+  pre_build:
     commands:
       -echo "Entered into pre-build phase"
     build:
       -mvn clean install
-  post-build:
+  post_build:
     commands:
       -echo "Build completed"
 artifacts:
