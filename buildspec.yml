@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+  pre-build:
+    commands:
+      -echo "Entered into pre-build phase"
+    build:
+      -mvn clean install
+  post-build:
+    commands:
+      -echo "Build completed"
+artifacts:
+  - target/*.jar

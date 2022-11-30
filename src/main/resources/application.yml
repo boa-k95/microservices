@@ -12,5 +12,5 @@ spring:
       import-check: false
 
 server:
-  port: 9090
+  port: 5000
 my: 9098
