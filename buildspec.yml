@@ -1,18 +1,16 @@
 version: 0.2
 phases:
-  install:
-    runtime-versions:
-      java: corretto11
   pre_build:
     commands:
       - echo "Entered into pre-build phase"
     build:
       - echo "Entered into pre-build phase"
-      - mvn clean install
+      - mvn package
   post_build:
     commands:
       - echo "Build completed"
+      - mv target/*.jar src.jar
 artifacts:
   files:
-    - '**/*'
+    - src.jar
   discard-paths: yes
