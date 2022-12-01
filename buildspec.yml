@@ -1,16 +1,18 @@
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      java: corretto8
   pre_build:
     commands:
       - echo "Entered into pre-build phase"
     build:
       - echo "Entered into pre-build phase"
-      - mvn package
+      - mvn clean install
   post_build:
     commands:
       - echo "Build completed"
-      - mv target/*.jar src.jar
 artifacts:
   files:
-    - src.jar
+    - target/secondService-0.0.1-SNAPSHOT.jar
   discard-paths: yes
