@@ -11,7 +11,7 @@ phases:
       - mvn clean install
   post_build:
     commands:
-      - echo "Build completed"
+      - echo "Build completed v3"
 artifacts:
   files:
     - target/secondService-0.0.1-SNAPSHOT.jar
