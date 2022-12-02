@@ -2,17 +2,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto17
-  pre_build:
+      java: corretto8
+  build:
     commands:
-      - echo "Entered into pre-build phase"
-    build:
-      - echo "Entered into pre-build phase"
-      - mvn clean install
+      - echo build started `date`
+      - mvn test
+    post_build:
+      commands:
+        - echo build complete `date`
+        - mvn package
   post_build:
     commands:
       - echo "Build completed v3"
 artifacts:
   files:
     - target/secondService-0.0.1-SNAPSHOT.jar
+    - appspec.yml
   discard-paths: yes
