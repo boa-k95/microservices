@@ -5,7 +5,8 @@ phases:
       java: corretto8
   build:
     commands:
-      - echo build started `date`
+      - echo "build started" `date`
+      - java --version
       - mvn test
     post_build:
       commands:
