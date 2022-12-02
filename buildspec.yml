@@ -5,16 +5,15 @@ phases:
       java: corretto8
   build:
     commands:
-      - echo "build started" `date`
-      - java --version
+      - echo "build started----->" `date`
       - mvn test
     post_build:
       commands:
-        - echo build complete `date`
+        - echo "build complete----->" `date`
         - mvn package
   post_build:
     commands:
-      - echo "Build completed v3"
+      - echo "Build completed v3------>" `date`
 artifacts:
   files:
     - target/secondService-0.0.1-SNAPSHOT.jar
