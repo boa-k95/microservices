@@ -5,16 +5,17 @@ phases:
       java: corretto8
   build:
     commands:
-      - echo "build started----->" `date`
-      -  mvn clean prepare-package war:exploded
+      - echo "build started" `date`
+      - mvn test
     post_build:
       commands:
         - echo "build complete----->" `date`
         - mvn package
   post_build:
     commands:
-      - echo "Build completed v3----->" `date`
-      - mv target/deploy ./
+      - echo "Build completed v3" `date`
 artifacts:
   files:
-    - deploy/**/*
+    - target/secondService-0.0.1-SNAPSHOT.jar
+    - appspec.yml
+  discard-paths: yes

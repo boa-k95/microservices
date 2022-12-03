@@ -9,8 +9,9 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>secondService</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>secondService</name>
+
     <description>Demo project for Spring Boot</description>
     <!--<url>http://maven.apache.org</url>-->
     <properties>
@@ -84,13 +85,11 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-               <!-- <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>-->
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
-                <executions>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+
+             <!--   <executions>
                     <execution>
                         <id>default-war</id>
                         <phase>none</phase>
@@ -106,7 +105,7 @@
                             <goal>exploded</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
