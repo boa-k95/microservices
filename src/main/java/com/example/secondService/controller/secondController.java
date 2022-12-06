@@ -48,7 +48,7 @@ public class secondController {
         CommandInput input = checkInfoCommandfactory.createIntegerNumber(num);
         Numbercommand commandExecute = beanFactory.getBean(Numbercommand.class, input);
         CommandOutput Output = commandExecute.execute();
-        logger.info("CommandOutput--------->{}", Output);
+        logger.info("CommandOutput------------>{}", Output);
         return "---------".concat(appName) + "----" + Output.getRandomNumber();
     }
 
