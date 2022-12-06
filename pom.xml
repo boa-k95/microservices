@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>micro-service</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>micro-service</name>
 
     <description>Demo project for Spring Boot</description>
@@ -115,7 +115,7 @@
                 </dependencies>
             </plugin>
 
-           <!-- <plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.6</version>
@@ -134,8 +134,9 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
         </plugins>
         <finalName>micro-service</finalName>
     </build>
+
 </project>
