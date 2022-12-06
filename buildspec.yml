@@ -17,5 +17,4 @@ phases:
 artifacts:
   files:
     - target/micro-service.jar
-    - appspec.yml
   discard-paths: yes

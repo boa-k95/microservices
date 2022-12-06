@@ -10,7 +10,7 @@
     <groupId>com.example</groupId>
     <artifactId>secondService</artifactId>
     <version>0.0.1</version>
-    <name>secondService</name>
+    <name>micro-service</name>
 
     <description>Demo project for Spring Boot</description>
     <!--<url>http://maven.apache.org</url>-->
@@ -83,6 +83,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.7.4</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -115,7 +116,7 @@
                 </dependencies>
             </plugin>
 
-            <plugin>
+           <!-- <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.6</version>
@@ -134,7 +135,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
         <finalName>micro-service </finalName>
     </build>
