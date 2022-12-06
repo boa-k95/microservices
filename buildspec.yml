@@ -8,9 +8,6 @@ phases:
       commands:
         - echo "build complete----->" `date`
         - mvn clean package
-  post_build:
-    commands:
-      - echo "Build completed v3" `date`
 artifacts:
   files:
     - target/micro-service.jar
