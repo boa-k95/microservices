@@ -136,6 +136,7 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>micro-service </finalName>
     </build>
 
 </project>

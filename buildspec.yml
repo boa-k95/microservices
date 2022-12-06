@@ -10,12 +10,12 @@ phases:
     post_build:
       commands:
         - echo "build complete----->" `date`
-        - mvn package
+        - mvn clean package
   post_build:
     commands:
       - echo "Build completed v3" `date`
 artifacts:
   files:
-    - target/secondService-0.0.1-SNAPSHOT.jar
+    - target/micro-service.jar
     - appspec.yml
   discard-paths: yes
