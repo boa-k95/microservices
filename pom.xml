@@ -8,7 +8,7 @@
         <version>2.5.6</version>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>secondService</artifactId>
+    <artifactId>micro-service</artifactId>
     <version>0.0.1</version>
     <name>micro-service</name>
 
@@ -83,7 +83,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.7.4</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -139,5 +138,4 @@
         </plugins>
         <finalName>micro-service</finalName>
     </build>
-
 </project>
