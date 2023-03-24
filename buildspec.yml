@@ -19,7 +19,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - docker push ldocker build with mongoG
 artifacts:
   files:
     - target/micro-service.jar

@@ -25,7 +25,9 @@ import java.util.Map;
 import java.util.Properties;
 
 @RestController
+
 @RequestMapping(value = "getId")
+@CrossOrigin(origins = "http://localhost:4200")
 public class secondController {
     private static final Logger logger = LoggerFactory.getLogger(secondController.class);
     @Autowired
@@ -37,7 +39,7 @@ public class secondController {
     @Value("${welcome_message : not found}") 
     private String appName;
 
-    @GetMapping(value = "/message/{num}")
+    @GetMapping(value = "/{num}")
     public String showMessage(@PathVariable int num) throws Exception {
 
         String localAddress;

@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 @Scope("prototype")
 @RequiredArgsConstructor
@@ -19,8 +23,17 @@ public class Numbercommand extends BaseCommand<CommandOutput> {
 
        int number = service.checkSize(input.getNumber());
 
-       output.setRandomNumber(number);
+     logger.info("final list numbers --------> {}",getRandomNumbers());
+
+    output.setRandomNumber(number);
         return output;
 
     }
+
+    public static List<?extends Object> getRandomNumbers(){
+    var number =  Arrays.asList("ciao","kurtis","boama");
+    var upperCase =   number.stream().map(String::toUpperCase).collect(Collectors.toList());
+    return  upperCase;
+
+}
 }
