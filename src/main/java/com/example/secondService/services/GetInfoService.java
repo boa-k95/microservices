@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GetInfoService {
-    public static final String WELCOME_MESSAGE = "WELCOME";
+    public static final String WELCOME_MESSAGE = "WELCOMEToSTO";
     @Autowired
     private commonFactory factory;
 
